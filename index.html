@@ -8,36 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @media print {
-            .no-print {
-                display: none !important;
-            }
-            
-            .print-break {
-                page-break-after: always;
-            }
-            
-            body {
-                background: white !important;
-                -webkit-print-color-adjust: exact;
-            }
-            
-            .min-h-screen {
-                min-height: auto !important;
-            }
-            
-            .max-h-96 {
-                max-height: none !important;
-                overflow: visible !important;
-            }
-            
-            .hover\:bg-slate-50:hover {
-                background-color: transparent !important;
-            }
-            
-            .bg-gradient-to-br {
-                background: white !important;
-            }
-            
             /* Hide WhatsApp buttons during print */
             button.bg-green-600 {
                 display: none !important;
@@ -48,6 +18,31 @@
                 padding: 4px !important;
                 border: none !important;
                 background: transparent !important;
+            }
+            
+            /* Clean up background for print */
+            body {
+                background: white !important;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .min-h-screen {
+                min-height: auto !important;
+            }
+            
+            .bg-gradient-to-br {
+                background: white !important;
+            }
+            
+            /* Remove hover effects */
+            .hover\:bg-slate-50:hover {
+                background-color: transparent !important;
+            }
+            
+            /* Ensure all content is visible */
+            .max-h-96 {
+                max-height: none !important;
+                overflow: visible !important;
             }
         }
     </style>
@@ -89,21 +84,15 @@
         <!-- Main Content -->
         <div class="space-y-6">
             <!-- Controls -->
-            <div class="flex justify-between items-center">
-                <div class="flex gap-2">
-                    <button onclick="showMonth('2025-10')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors" data-month="2025-10">
-                        Oktober 2025
-                    </button>
-                    <button onclick="showMonth('2025-11')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors bg-blue-600 text-white" data-month="2025-11">
-                        November 2025
-                    </button>
-                    <button onclick="showMonth('2025-12')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors" data-month="2025-12">
-                        Desember 2025
-                    </button>
-                </div>
-                <button onclick="window.print()" class="no-print flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors">
-                    <i class="fas fa-print"></i>
-                    Cetak
+            <div class="flex gap-2">
+                <button onclick="showMonth('2025-10')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors" data-month="2025-10">
+                    Oktober 2025
+                </button>
+                <button onclick="showMonth('2025-11')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors bg-blue-600 text-white" data-month="2025-11">
+                    November 2025
+                </button>
+                <button onclick="showMonth('2025-12')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors" data-month="2025-12">
+                    Desember 2025
                 </button>
             </div>
 
