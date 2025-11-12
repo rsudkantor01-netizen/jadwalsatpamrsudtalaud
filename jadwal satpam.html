@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Satpam - RSUD Kabupaten Kepulauan Talaud</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .week-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .week-selector select {
+            padding: 10px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .week-selector select:hover {
+            border-color: #667eea;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .table-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .today-row {
+            background: #e3f2fd !important;
+            border-left: 4px solid #2196f3;
+        }
+
+        .day-badge {
+            background: #2196f3;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .petugas-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .petugas-card:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .petugas-number {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .petugas-1 .petugas-number {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .petugas-2 .petugas-number {
+            background: #e8f5e8;
+            color: #388e3c;
+        }
+
+        .petugas-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .petugas-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .petugas-whatsapp {
+            font-size: 12px;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .petugas-whatsapp a {
+            color: #28a745 !important;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.3s;
+        }
+
+        .petugas-whatsapp a:hover {
+            color: #218838 !important;
+            text-decoration: underline;
+        }
+
+        .satpam-grid {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .satpam-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .satpam-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .satpam-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #212529;
+        }
+
+        .satpam-whatsapp {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .satpam-whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #28a745;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s;
+        }
+
+        .satpam-whatsapp-link:hover {
+            color: #218838;
+            text-decoration: underline;
+        }
+
+        .jadwal-badge {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 20px;
+            font-weight: 600;
+            color: #212529;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .controls {
+                padding: 15px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .table-container {
+                padding: 15px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .petugas-card {
+                padding: 8px;
+                gap: 8px;
+            }
+
+            .petugas-number {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .satpam-grid {
+                padding: 15px;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🛡️ Jadwal Satpam</h1>
+            <p>RSUD Kabupaten Kepulauan Talaud</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="week-selector">
+                <label for="weekSelect">Pilih Minggu:</label>
+                <select id="weekSelect" onchange="changeWeek()">
+                    <option value="-2">2 Minggu Lalu</option>
+                    <option value="-1">Minggu Lalu</option>
+                    <option value="0" selected>Minggu Ini</option>
+                    <option value="1">Minggu Depan</option>
+                    <option value="2">2 Minggu Depan</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="generateJadwal()">
+                    🔄 Regenerasi Jadwal
+                </button>
+            </div>
+        </div>
+
+        <!-- Jadwal Table -->
+        <div class="section-title">
+            📅 Jadwal Tugas Mingguan
+        </div>
+        <div class="table-container">
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Memuat jadwal...</p>
+            </div>
+            <table id="jadwalTable">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">Hari</th>
+                        <th style="width: 120px;">Tanggal</th>
+                        <th style="width: 35%;">Petugas 1</th>
+                        <th style="width: 35%;">Petugas 2</th>
+                    </tr>
+                </thead>
+                <tbody id="jadwalBody">
+                    <!-- Jadwal akan di-generate oleh JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Daftar Satpam -->
+        <div class="section-title">
+            👥 Data Personil Satpam
+        </div>
+        <div class="satpam-grid" id="satpamGrid">
+            <!-- Data satpam akan di-generate oleh JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Data satpam
+        const satpamData = [
+            { id: 1, name: 'Andriski Mangalo', whatsapp: '082196445535' },
+            { id: 2, name: 'Fransisco Bitjoli', whatsapp: '082196846348' },
+            { id: 3, name: 'Michael Pangemanan', whatsapp: '081344039144' },
+            { id: 4, name: 'Juniarti Maliatja', whatsapp: '082187735384' },
+            { id: 5, name: 'Noldi Ansiga', whatsapp: '085298644392' },
+            { id: 6, name: 'Jupri Berhamba', whatsapp: '085343512961' }
+        ];
+
+        // Pola pasangan satpam
+        const pasanganSatpam = [
+            [4, 3], // juniarti maliatja & michael pangemanan
+            [1, 2], // andriski mangalo & fransisco bitjoli  
+            [5, 6], // noldi ansiga & jupri berhamba
+            [4, 3], // juniarti maliatja & michael pangemanan
+            [1, 2], // andriski mangalo & fransisco bitjoli
+            [5, 6], // noldi ansiga & jupri berhamba
+            [4, 3]  // juniarti maliatja & michael pangemanan
+        ];
+
+        const hariList = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+        let currentWeek = 0;
+        let currentJadwal = [];
+
+        // Fungsi untuk mendapatkan tanggal dalam seminggu
+        function getWeekDates(weekOffset = 0) {
+            const today = new Date();
+            const currentDay = today.getDay();
+            const diff = today.getDate() - currentDay + (weekOffset * 7) + 1; // +1 untuk Monday
+            const monday = new Date(today.setDate(diff));
+            
+            return hariList.map((hari, index) => {
+                const date = new Date(monday);
+                date.setDate(monday.getDate() + index);
+                return {
+                    hari,
+                    tanggal: date.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' })
+                };
+            });
+        }
+
+        // Fungsi untuk mengecek apakah hari ini
+        function isToday(tanggal) {
+            const today = new Date();
+            const todayStr = today.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            return tanggal === todayStr;
+        }
+
+        // Fungsi untuk membuat link WhatsApp
+        function createWhatsAppLink(phone) {
+            // Remove any non-digit characters and ensure Indonesian format
+            const cleanPhone = phone.replace(/\D/g, '');
+            // Add country code if not present
+            const formattedPhone = cleanPhone.startsWith('62') ? cleanPhone : `62${cleanPhone}`;
+            return `https://wa.me/${formattedPhone}`;
+        }
+
+        // Fungsi untuk mendapatkan data satpam berdasarkan ID
+        function getSatpamById(id) {
+            return satpamData.find(satpam => satpam.id === id);
+        }
+
+        // Fungsi untuk generate jadwal
+        function generateJadwalData(weekOffset = 0) {
+            const weekDates = getWeekDates(weekOffset);
+            const newJadwal = [];
+
+            weekDates.forEach((date, index) => {
+                const pasanganIndex = index % pasanganSatpam.length;
+                newJadwal.push({
+                    id: index + 1,
+                    satpamIds: pasanganSatpam[pasanganIndex],
+                    hari: date.hari,
+                    tanggal: date.tanggal
+                });
+            });
+
+            return newJadwal;
+        }
+
+        // Fungsi untuk render tabel jadwal
+        function renderJadwal() {
+            const jadwalBody = document.getElementById('jadwalBody');
+            const weekDates = getWeekDates(currentWeek);
+            
+            jadwalBody.innerHTML = '';
+
+            weekDates.forEach((date, index) => {
+                const jadwalHari = currentJadwal.find(j => j.hari === date.hari);
+                const today = isToday(date.tanggal);
+                const satpam1 = jadwalHari ? getSatpamById(jadwalHari.satpamIds[0]) : null;
+                const satpam2 = jadwalHari ? getSatpamById(jadwalHari.satpamIds[1]) : null;
+
+                const row = document.createElement('tr');
+                if (today) {
+                    row.className = 'today-row';
+                }
+
+                row.innerHTML = `
+                    <td>
+                        <div>
+                            <strong>${date.hari}</strong>
+                            ${today ? '<span class="day-badge">Hari Ini</span>' : ''}
+                        </div>
+                    </td>
+                    <td>${date.tanggal}</td>
+                    <td>
+                        ${satpam1 ? `
+                            <div class="petugas-card petugas-1">
+                                <div class="petugas-number">1</div>
+                                <div class="petugas-info">
+                                    <div class="petugas-name">${satpam1.name}</div>
+                                    <div class="petugas-whatsapp">
+                                        <a href="${createWhatsAppLink(satpam1.whatsapp)}" target="_blank" rel="noopener noreferrer">
+                                            💬 Hubungi WhatsApp
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </td>
+                    <td>
+                        ${satpam2 ? `
+                            <div class="petugas-card petugas-2">
+                                <div class="petugas-number">2</div>
+                                <div class="petugas-info">
+                                    <div class="petugas-name">${satpam2.name}</div>
+                                    <div class="petugas-whatsapp">
+                                        <a href="${createWhatsAppLink(satpam2.whatsapp)}" target="_blank" rel="noopener noreferrer">
+                                            💬 Hubungi WhatsApp
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </td>
+                `;
+
+                jadwalBody.appendChild(row);
+            });
+        }
+
+        // Fungsi untuk render grid satpam
+        function renderSatpamGrid() {
+            const satpamGrid = document.getElementById('satpamGrid');
+            satpamGrid.innerHTML = '';
+
+            satpamData.forEach(satpam => {
+                const jadwalCount = currentJadwal.filter(j => j.satpamIds.includes(satpam.id)).length;
+                const jadwalHari = currentJadwal
+                    .filter(j => j.satpamIds.includes(satpam.id))
+                    .slice(0, 3)
+                    .map(j => j.hari.substring(0, 3));
+
+                const card = document.createElement('div');
+                card.className = 'satpam-card';
+                card.innerHTML = `
+                    <div class="satpam-name">${satpam.name}</div>
+                    <div class="satpam-whatsapp">💬 WhatsApp tersedia</div>
+                    <div style="margin-top: 10px;">
+                        <strong style="font-size: 12px; color: #6c757d;">Jadwal Minggu Ini:</strong><br>
+                        ${jadwalHari.map(hari => `<span class="jadwal-badge">${hari}</span>`).join('')}
+                        ${jadwalCount > 3 ? `<span class="jadwal-badge">+${jadwalCount - 3}</span>` : ''}
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <a href="${createWhatsAppLink(satpam.whatsapp)}" target="_blank" rel="noopener noreferrer" class="satpam-whatsapp-link">
+                            💬 Hubungi WhatsApp
+                        </a>
+                    </div>
+                `;
+                satpamGrid.appendChild(card);
+            });
+        }
+
+        // Fungsi untuk generate jadwal dengan loading
+        function generateJadwal() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const jadwalTable = document.getElementById('jadwalTable');
+            
+            loadingIndicator.style.display = 'block';
+            jadwalTable.style.display = 'none';
+
+            setTimeout(() => {
+                currentJadwal = generateJadwalData(currentWeek);
+                renderJadwal();
+                renderSatpamGrid();
+                
+                loadingIndicator.style.display = 'none';
+                jadwalTable.style.display = 'table';
+            }, 500);
+        }
+
+        // Fungsi untuk ganti minggu
+        function changeWeek() {
+            const weekSelect = document.getElementById('weekSelect');
+            currentWeek = parseInt(weekSelect.value);
+            generateJadwal();
+        }
+
+        // Initialize saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            generateJadwal();
+        });
+    </script>
+</body>
+</html>
