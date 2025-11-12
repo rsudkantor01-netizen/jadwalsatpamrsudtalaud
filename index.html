@@ -3,336 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Satpam RSUD Kab. Kepulauan Talaud</title>
+    <title>Jadwal Satpam - RSUD Kabupaten Kepulauan Talaud 2025</title>
+    <meta name="description" content="Jadwal lengkap satpam RSUD Kabupaten Kepulauan Talaud tahun 2025 dengan kontak WhatsApp untuk komunikasi cepat">
+    <meta name="keywords" content="satpam, RSUD Talaud, jadwal satpam, kontak darurat, keamanan">
+    <meta name="author" content="RSUD Kabupaten Kepulauan Talaud">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jadwal Satpam - RSUD Kabupaten Kepulauan Talaud 2025">
+    <meta property="og:description" content="Jadwal lengkap satpam dengan kontak WhatsApp untuk komunikasi cepat">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Custom Styles -->
     <style>
+        /* Custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Print styles */
         @media print {
-            /* Hide WhatsApp buttons during print */
-            button.bg-green-600 {
+            .no-print {
                 display: none !important;
             }
-            
-            /* Simplify guard display for print */
-            .flex-col.items-center.p-2.border.rounded-lg {
-                padding: 4px !important;
-                border: none !important;
-                background: transparent !important;
-            }
-            
-            /* Clean up background for print */
-            body {
-                background: white !important;
-                -webkit-print-color-adjust: exact;
-            }
-            
-            .min-h-screen {
-                min-height: auto !important;
-            }
-            
-            .bg-gradient-to-br {
-                background: white !important;
-            }
-            
-            /* Remove hover effects */
-            .hover\:bg-slate-50:hover {
-                background-color: transparent !important;
-            }
-            
-            /* Ensure all content is visible */
-            .max-h-96 {
-                max-height: none !important;
-                overflow: visible !important;
+            .print-break {
+                page-break-inside: avoid;
             }
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-    <div class="max-w-7xl mx-auto space-y-6 p-4">
-        <!-- Header -->
-        <div class="text-center space-y-4 py-8">
-            <div class="flex justify-center mb-4">
-                <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center">
-                    <i class="fas fa-shield-alt text-white text-4xl"></i>
-                </div>
-            </div>
-            <h1 class="text-4xl font-bold text-slate-900">
-                Jadwal Satpam RSUD Kab. Kepulauan Talaud
-            </h1>
-            <p class="text-lg text-slate-600">
-                Periode Oktober - Desember 2025
-            </p>
-        </div>
-
-        <!-- Today's Schedule -->
-        <div class="border-2 border-blue-200 bg-blue-50 rounded-lg p-6" id="todaySchedule">
-            <div class="flex items-center gap-2 text-blue-900 mb-4">
-                <i class="fas fa-clock text-xl"></i>
-                <h2 class="text-xl font-bold">Jadwal Hari Ini</h2>
-            </div>
-            <div class="flex items-center justify-between">
+<body class="bg-gradient-to-br from-blue-50 to-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-l-4 border-blue-600 sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
-                    <p class="font-semibold text-blue-900" id="todayDate">Loading...</p>
-                    <p class="text-blue-700" id="todayDay">Loading...</p>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                        🛡️ Jadwal Satpam
+                    </h1>
+                    <p class="text-lg text-gray-600">
+                        RSUD Kabupaten Kepulauan Talaud - Oktober - Desember 2025
+                    </p>
                 </div>
-                <div class="flex gap-2 flex-wrap" id="todayGuards">
+                <div class="mt-4 md:mt-0 flex items-center gap-2">
+                    <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i>
+                    <span class="text-sm font-medium text-gray-700">
+                        Jam Kerja: 08:00 - 08:00 (24 Jam)
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Today's Status -->
+        <section id="today-status" class="mb-8 print-break">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <i data-lucide="alert-circle" class="w-6 h-6"></i>
+                    <span id="today-title">Jadwal Hari Ini</span>
+                </h2>
+                <div id="today-drivers" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Today's guards will be inserted here -->
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Main Content -->
-        <div class="space-y-6">
-            <!-- Controls -->
-            <div class="flex gap-2">
-                <button onclick="showMonth('2025-10')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors" data-month="2025-10">
-                    Oktober 2025
-                </button>
-                <button onclick="showMonth('2025-11')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors bg-blue-600 text-white" data-month="2025-11">
-                    November 2025
-                </button>
-                <button onclick="showMonth('2025-12')" class="month-btn px-4 py-2 border rounded-lg hover:bg-slate-100 transition-colors" data-month="2025-12">
-                    Desember 2025
-                </button>
+        <!-- Guard Cards -->
+        <section class="mb-8 print-break">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
+                Data Satpam
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="guard-cards">
+                <!-- Guard cards will be inserted here -->
             </div>
+        </section>
 
-            <!-- Schedule Grid -->
-            <div class="border rounded-lg p-6 bg-white">
-                <h2 class="text-xl font-bold mb-4" id="scheduleTitle">Jadwal November 2025</h2>
-                <p class="text-slate-600 mb-4">2 satpam berjaga setiap hari</p>
-                <div class="grid gap-4 max-h-96 overflow-y-auto" id="scheduleGrid">
-                    <!-- Schedule will be inserted here -->
-                </div>
-            </div>
-
-            <!-- Guards List -->
-            <div class="border rounded-lg p-6 bg-white">
-                <div class="flex items-center gap-2 mb-4">
-                    <i class="fas fa-users text-xl"></i>
-                    <h2 class="text-xl font-bold">Daftar Satpam</h2>
-                </div>
-                <p class="text-slate-600 mb-4">Total 6 satpam yang bertugas</p>
-                <div class="grid gap-4 md:grid-cols-2" id="guardsList">
-                    <!-- Guards list will be inserted here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="text-center py-8 text-slate-600">
-            <p class="text-sm">
-                RSUD Kabupaten Kepulauan Talaud - Sistem Informasi Jadwal Satpam
-            </p>
-            <p class="text-xs mt-2">
-                Periode: Oktober - Desember 2025
-            </p>
-        </div>
-    </div>
-
-    <script>
-        // Data satpam
-        const securityGuards = [
-            {
-                id: "1",
-                name: "Andriski Mangalo",
-                whatsapp: "082196445535"
-            },
-            {
-                id: "2", 
-                name: "Fransisco Bitjoli",
-                whatsapp: "082196846348"
-            },
-            {
-                id: "3",
-                name: "Michael Pangemanan", 
-                whatsapp: "081344039144"
-            },
-            {
-                id: "4",
-                name: "Juniarti Maliatja",
-                whatsapp: "082187735384"
-            },
-            {
-                id: "5",
-                name: "Noldi Ansiga",
-                whatsapp: "085298644392"
-            },
-            {
-                id: "6",
-                name: "Jupri Berhamba", 
-                whatsapp: "085343512961"
-            }
-        ];
-
-        // Generate schedule
-        function generateSchedule() {
-            const schedule = [];
-            const startDate = new Date("2025-10-01");
-            const endDate = new Date("2025-12-31");
-            
-            // Specific assignments mentioned by user
-            const specificAssignments = {
-                "2025-11-11": ["Juniarti Maliatja", "Michael Pangemanan"],
-                "2025-11-12": ["Andriski Mangalo", "Fransisco Bitjoli"], 
-                "2025-11-13": ["Noldi Ansiga", "Jupri Berhamba"]
-            };
-            
-            let guardIndex = 0;
-            
-            for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
-                const dateStr = date.toISOString().split('T')[0];
-                
-                if (specificAssignments[dateStr]) {
-                    const assignedNames = specificAssignments[dateStr];
-                    const assignedGuards = securityGuards.filter(guard => 
-                        assignedNames.includes(guard.name)
-                    );
-                    schedule.push({
-                        date: dateStr,
-                        guards: assignedGuards
-                    });
-                } else {
-                    // Rotate 2 guards per day
-                    const firstGuard = securityGuards[guardIndex % securityGuards.length];
-                    const secondGuard = securityGuards[(guardIndex + 1) % securityGuards.length];
-                    
-                    schedule.push({
-                        date: dateStr,
-                        guards: [firstGuard, secondGuard]
-                    });
-                    
-                    guardIndex += 2;
-                }
-            }
-            
-            return schedule;
-        }
-
-        // Format functions
-        function formatDate(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('id-ID', { 
-                day: 'numeric', 
-                month: 'long', 
-                year: 'numeric' 
-            });
-        }
-
-        function getDayName(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('id-ID', { weekday: 'long' });
-        }
-
-        function formatWhatsAppNumber(number) {
-            const cleanNumber = number.replace(/\D/g, '');
-            return cleanNumber.startsWith('0') ? `62${cleanNumber.substring(1)}` : cleanNumber;
-        }
-
-        function openWhatsApp(phoneNumber) {
-            const formattedNumber = formatWhatsAppNumber(phoneNumber);
-            window.open(`https://wa.me/${formattedNumber}`, '_blank');
-        }
-
-        function createGuardElement(guard) {
-            return `
-                <div class="flex flex-col items-center p-2 border rounded-lg bg-slate-50">
-                    <span class="text-sm font-medium mb-1">${guard.name}</span>
-                    <button
-                        onclick="openWhatsApp('${guard.whatsapp}')"
-                        class="bg-green-600 hover:bg-green-700 text-white text-xs h-6 px-2 rounded flex items-center gap-1 transition-colors"
-                    >
-                        <i class="fas fa-phone text-xs"></i>
-                        WA
-                    </button>
-                </div>
-            `;
-        }
-
-        function showMonth(monthStr) {
-            // Update button states
-            document.querySelectorAll('.month-btn').forEach(btn => {
-                if (btn.dataset.month === monthStr) {
-                    btn.classList.add('bg-blue-600', 'text-white');
-                    btn.classList.remove('hover:bg-slate-100');
-                } else {
-                    btn.classList.remove('bg-blue-600', 'text-white');
-                    btn.classList.add('hover:bg-slate-100');
-                }
-            });
-
-            // Update title
-            const [year, month] = monthStr.split('-');
-            const monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-                              'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-            document.getElementById('scheduleTitle').textContent = `Jadwal ${monthNames[parseInt(month) - 1]} ${year}`;
-
-            // Filter and display schedule
-            const allSchedule = generateSchedule();
-            const monthSchedule = allSchedule.filter(schedule => {
-                const scheduleDate = new Date(schedule.date);
-                return scheduleDate.getFullYear() === parseInt(year) && 
-                       scheduleDate.getMonth() === parseInt(month) - 1;
-            });
-
-            const scheduleGrid = document.getElementById('scheduleGrid');
-            scheduleGrid.innerHTML = monthSchedule.map(daySchedule => `
-                <div class="flex items-center justify-between p-4 border rounded-lg hover:bg-slate-50 transition-colors">
-                    <div class="flex-1">
-                        <p class="font-semibold">${formatDate(daySchedule.date)}</p>
-                        <p class="text-sm text-slate-600">${getDayName(daySchedule.date)}</p>
-                    </div>
-                    <div class="flex gap-2 flex-wrap">
-                        ${daySchedule.guards.map(guard => createGuardElement(guard)).join('')}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function initializeGuardsList() {
-            const guardsList = document.getElementById('guardsList');
-            guardsList.innerHTML = securityGuards.map(guard => `
-                <div class="border border-slate-200 rounded-lg p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h3 class="font-semibold text-lg">${guard.name}</h3>
-                            <p class="text-slate-600 flex items-center gap-2 mt-1">
-                                <i class="fas fa-phone"></i>
-                                ${guard.whatsapp}
-                            </p>
-                        </div>
-                        <button
-                            onclick="openWhatsApp('${guard.whatsapp}')"
-                            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded flex items-center gap-2 transition-colors"
-                        >
-                            <i class="fas fa-phone"></i>
-                            WhatsApp
+        <!-- Calendar View -->
+        <section class="mb-8 print-break">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-6 h-6 text-blue-600"></i>
+                        <span id="calendar-title">Kalender Jadwal</span>
+                    </h2>
+                    <div class="flex gap-2 mt-4 md:mt-0">
+                        <button onclick="changeMonth(-1)" class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50 no-print">
+                            ←
+                        </button>
+                        <button onclick="changeMonth(1)" class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50 no-print">
+                            →
                         </button>
                     </div>
                 </div>
-            `).join('');
-        }
+                
+                <!-- Day headers -->
+                <div class="grid grid-cols-7 gap-1 mb-2">
+                    <div class="text-center font-semibold text-sm text-gray-700 p-2">Minggu</div>
+                    <div class="text-center font-semibold text-sm text-gray-700 p-2">Senin</div>
+                    <div class="text-center font-semibold text-sm text-gray-700 p-2">Selasa</div>
+                    <div class="text-center font-semibold text-sm text-gray-700 p-2">Rabu</div>
+                    <div class="text-center font-semibold text-sm text-gray-700 p-2">Kamis</div>
+                    <div class="text-center font-semibold text-sm text-gray-700 p-2">Jumat</div>
+                    <div class="text-center font-semibold text-sm text-gray-700 p-2">Sabtu</div>
+                </div>
+                
+                <!-- Calendar days -->
+                <div id="calendar-days" class="grid grid-cols-7 gap-1">
+                    <!-- Calendar days will be inserted here -->
+                </div>
+            </div>
+        </section>
 
-        function initializeTodaySchedule() {
-            const today = new Date().toISOString().split('T')[0];
-            const allSchedule = generateSchedule();
-            const todaySchedule = allSchedule.find(schedule => schedule.date === today);
+        <!-- Important Info -->
+        <section class="mb-8 print-break">
+            <div class="bg-blue-50 border-blue-200 rounded-xl p-6">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-blue-600 mt-0.5"></i>
+                    <div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Informasi Penting</h3>
+                        <ul class="text-sm text-blue-800 space-y-1">
+                            <li>• Setiap satpam bertugas 2 hari per minggu</li>
+                            <li>• Jam kerja dimulai pukul 08:00 WITA selama 24 jam</li>
+                            <li>• Klik tombol WhatsApp untuk komunikasi langsung dengan satpam</li>
+                            <li>• Jadwal berlaku dari Oktober hingga Desember 2025</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-            if (todaySchedule) {
-                document.getElementById('todayDate').textContent = formatDate(todaySchedule.date);
-                document.getElementById('todayDay').textContent = getDayName(todaySchedule.date);
-                document.getElementById('todayGuards').innerHTML = 
-                    todaySchedule.guards.map(guard => createGuardElement(guard)).join('');
-            } else {
-                document.getElementById('todaySchedule').style.display = 'none';
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Hospital Info -->
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-semibold mb-4 text-blue-400">RSUD Kabupaten Kepulauan Talaud</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Rumah Sakit Umum Daerah Kabupaten Kepulauan Talaud menyediakan layanan keamanan profesional dengan satpam siaga untuk menjaga ketertiban dan keamanan fasilitas rumah sakit.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-blue-400">Layanan Cepat</h3>
+                    <div class="space-y-2 text-sm">
+                        <button onclick="scrollToToday()" class="text-gray-300 hover:text-white flex items-center gap-2 w-full text-left">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            Lihat Jadwal Hari Ini
+                        </button>
+                        <button onclick="contactAllGuards()" class="text-gray-300 hover:text-white flex items-center gap-2 w-full text-left">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            Hubungi Semua Satpam
+                        </button>
+                        <a href="tel:119" class="text-gray-300 hover:text-white flex items-center gap-2 inline-block">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            Panggil Keamanan
+                        </a>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-blue-400"></i>
+                            <span class="text-gray-300">Siaga 24 Jam Setiap Hari</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 mt-8 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-sm text-gray-400">
+                        © 2025 RSUD Kabupaten Kepulauan Talaud. Hak Cipta Dilindungi.
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <span>Dikembangkan untuk:</span>
+                        <span class="text-blue-400 font-semibold">Layanan Keamanan Rumah Sakit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Guard data
+        const guards = [
+            {
+                id: '1',
+                name: 'Andriski Mangalo',
+                phone: '082196445535',
+                whatsapp: '6282196445535'
+            },
+            {
+                id: '2',
+                name: 'Fransisco Bitjoli',
+                phone: '082196846348',
+                whatsapp: '6282196846348'
+            },
+            {
+                id: '3',
+                name: 'Michael Pangemanan',
+                phone: '081344039144',
+                whatsapp: '6281344039144'
+            },
+            {
+                id: '4',
+                name: 'Juniarti Maliatja',
+                phone: '082187735384',
+                whatsapp: '6282187735384'
+            },
+            {
+                id: '5',
+                name: 'Noldi Ansiga',
+                phone: '085298644392',
+                whatsapp: '6285298644392'
+            },
+            {
+                id: '6',
+                name: 'Jupri Berhamba',
+                phone: '085343512961',
+                whatsapp: '6285343512961'
             }
+        ];
+
+        // Schedule data for October - December 2025
+        const scheduleData = {
+            // November 2025 specific dates
+            '2025-11-11': ['Juniarti Maliatja', 'Michael Pangemanan'],
+            '2025-11-12': ['Andriski Mangalo', 'Fransisco Bitjoli'],
+            '2025-11-13': ['Noldi Ansiga', 'Jupri Berhamba']
+        };
+
+        const dayNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        
+        let currentMonth = 9; // October (0-indexed)
+        let currentYear = 2025;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            updateTodayStatus();
+            renderGuardCards();
+            renderCalendar();
+        });
+
+        // Update today's status
+        function updateTodayStatus() {
+            const today = new Date();
+            const dayName = dayNames[today.getDay()];
+            const todayGuards = getGuardsForDay(today);
+            
+            document.getElementById('today-title').textContent = `Jadwal Hari Ini - ${dayName}, ${today.getDate()} ${monthNames[today.getMonth()]} 2025`;
+            
+            const guardsContainer = document.getElementById('today-drivers');
+            guardsContainer.innerHTML = '';
+            
+            todayGuards.forEach(guard => {
+                const guardCard = document.createElement('div');
+                guardCard.className = 'bg-white/10 backdrop-blur rounded-lg p-4';
+                guardCard.innerHTML = `
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-semibold text-lg">${guard.name}</h3>
+                        <span class="px-2 py-1 rounded text-xs font-medium bg-green-500 text-white">
+                            Tugas
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2 text-white/90 text-sm mb-3">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>${guard.phone}</span>
+                    </div>
+                    <button onclick="contactGuard('${guard.whatsapp}', '${guard.name}')" class="w-full bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                        <i data-lucide="message-circle" class="w-4 h-4 inline mr-2"></i>
+                        Hubungi via WhatsApp
+                    </button>
+                `;
+                guardsContainer.appendChild(guardCard);
+            });
+            
+            // Reinitialize icons
+            lucide.createIcons();
         }
 
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeGuardsList();
-            initializeTodaySchedule();
-            showMonth('2025-11'); // Default to November
-        });
+        // Render guard cards
+        function renderGuardCards() {
+            const container = document.getElementById('guard-cards');
+            container.innerHTML = '';
+            
+            guards.forEach(guard => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow print-break';
+                card.innerHTML = `
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 -m-6 mb-4 p-6 rounded-t-xl">
+                        <h3 class="text-lg font-bold text-gray-900">${guard.name}</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="pt-3 border-t">
+                            <div class="flex items-center gap-2 text-gray-700 mb-3">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                                <span class="font-medium">${guard.phone}</span>
+                            </div>
+                            <button onclick="contactGuard('${guard.whatsapp}', '${guard.name}')" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium">
+                                <i data-lucide="message-circle" class="w-4 h-4 inline mr-2"></i>
+                                Hubungi via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            
+            // Reinitialize icons
+            lucide.createIcons();
+        }
+
+        // Render calendar
+        function renderCalendar() {
+            document.getElementById('calendar-title').textContent = `Kalender Jadwal ${monthNames[currentMonth]} ${currentYear}`;
+            
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            const lastDay = new Date(currentYear, currentMonth + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDayOfWeek = firstDay.getDay();
+            
+            const calendarDays = document.getElementById('calendar-days');
+            calendarDays.innerHTML = '';
+            
+            // Add empty cells for days before month starts
+            for (let i = 0; i < startingDayOfWeek; i++) {
+                calendarDays.appendChild(createEmptyDayCell());
+            }
+            
+            // Add days of the month
+            const today = new Date();
+            for (let i = 1; i <= daysInMonth; i++) {
+                const date = new Date(currentYear, currentMonth, i);
+                const dayGuards = getGuardsForDay(date);
+                
+                const isToday = i === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear();
+                
+                calendarDays.appendChild(createDayCell(i, dayGuards, isToday));
+            }
+            
+            // Reinitialize icons
+            lucide.createIcons();
+        }
+
+        // Create empty day cell
+        function createEmptyDayCell() {
+            const cell = document.createElement('div');
+            cell.className = 'min-h-[80px] border rounded-lg p-2 bg-gray-50';
+            return cell;
+        }
+
+        // Create day cell
+        function createDayCell(date, dayGuards, isToday) {
+            const cell = document.createElement('div');
+            cell.className = `min-h-[80px] border rounded-lg p-2 bg-white hover:bg-gray-50 ${isToday ? 'ring-2 ring-blue-500 bg-blue-50' : ''}`;
+            
+            let guardsHtml = '';
+            if (dayGuards.length > 0) {
+                guardsHtml = dayGuards.slice(0, 2).map(guard => {
+                    return `<div class="text-xs px-1 py-0.5 rounded bg-green-500 text-white truncate" title="${guard.name}">${guard.name.split(' ')[0]}</div>`;
+                }).join('');
+                
+                if (dayGuards.length > 2) {
+                    guardsHtml += `<div class="text-xs text-gray-500">+${dayGuards.length - 2}</div>`;
+                }
+            }
+            
+            cell.innerHTML = `
+                <div class="font-semibold text-sm text-gray-900 mb-1">${date}</div>
+                <div class="space-y-1">${guardsHtml}</div>
+            `;
+            
+            return cell;
+        }
+
+        // Get guards for specific day
+        function getGuardsForDay(date) {
+            const dateString = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+            
+            // Check if there's a specific schedule for this date
+            if (scheduleData[dateString]) {
+                return scheduleData[dateString].map(guardName => 
+                    guards.find(guard => guard.name === guardName)
+                ).filter(guard => guard);
+            }
+            
+            // Default rotation pattern (2 guards per day, rotating through all 6)
+            const dayIndex = Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
+            const startIndex = (dayIndex * 2) % guards.length;
+            
+            return [
+                guards[startIndex],
+                guards[(startIndex + 1) % guards.length]
+            ];
+        }
+
+        // Action functions
+        function contactGuard(phoneNumber, guardName) {
+            const message = `Halo ${guardName}, saya menghubungi dari jadwal satpam RSUD Kabupaten Kepulauan Talaud.`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function contactAllGuards() {
+            guards.forEach(guard => {
+                setTimeout(() => {
+                    contactGuard(guard.whatsapp, guard.name);
+                }, 500 * guards.indexOf(guard));
+            });
+        }
+
+        function scrollToToday() {
+            document.getElementById('today-status').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function changeMonth(direction) {
+            currentMonth += direction;
+            if (currentMonth < 9) { // Don't go before October
+                currentMonth = 9;
+            } else if (currentMonth > 11) { // Don't go after December
+                currentMonth = 11;
+            }
+            renderCalendar();
+        }
     </script>
 </body>
 </html>
